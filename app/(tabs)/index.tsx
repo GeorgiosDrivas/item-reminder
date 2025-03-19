@@ -1,3 +1,4 @@
+import MapControl from "@/components/mapControl";
 import { StyleSheet } from "react-native";
 import { View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -6,7 +7,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaProvider>
       <View style={styles.flex} id="map" />
-      <View style={styles.flex} id="control" />
+      <MapControl style={styles.flex} />
     </SafeAreaProvider>
   );
 }
