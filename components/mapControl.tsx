@@ -1,27 +1,39 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 
 export default function MapControl() {
   return (
-    <>
-      <div style={styles.flex}>
-        <button style={StyleSheet.flatten([styles.addBtn, styles.btn])}>
-          ADD LOCATION
-        </button>
-        <button style={StyleSheet.flatten([styles.clearBtn, styles.btn])}>
-          CLEAR LOCATION
-        </button>
-      </div>
-    </>
+    <View style={styles.flex}>
+      <Pressable
+        style={({ pressed }) => [
+          styles.addBtn,
+          styles.btn,
+          pressed && styles.pressed,
+        ]}
+        onPress={() => console.log("Add Location")}
+      >
+        <Text style={styles.text}>ADD LOCATION</Text>
+      </Pressable>
+      <Pressable
+        style={({ pressed }) => [
+          styles.clearBtn,
+          styles.btn,
+          pressed && styles.pressed,
+        ]}
+        onPress={() => console.log("Clear Location")}
+      >
+        <Text style={styles.text}>CLEAR LOCATION</Text>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   flex: {
-    flex: 1,
+    flex: 0.3,
     width: "100%",
-    display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
   },
   addBtn: {
     backgroundColor: "#16C1E8",
@@ -31,11 +43,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#EA5151",
   },
   btn: {
-    cursor: "pointer",
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 5,
+  },
+  text: {
     color: "#fff",
-    borderWidth: 0,
-    height: 30,
-    width: 150,
     fontWeight: "bold",
+  },
+  pressed: {
+    opacity: 0.7,
   },
 });
