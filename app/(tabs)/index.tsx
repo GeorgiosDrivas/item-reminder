@@ -7,7 +7,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaProvider>
       <View style={styles.flex} id="map" />
-      <MapControl style={styles.flex} />
+      <MapControl />
     </SafeAreaProvider>
   );
 }
