@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MapView, { Region } from "react-native-maps";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import * as Location from "expo-location";
+import { mapControlStyles } from "./styles";
 
 const INITIAL_REGION = {
   latitude: 37.78825,
@@ -33,9 +34,9 @@ export default function Map() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={mapControlStyles.container}>
       <MapView
-        style={styles.map}
+        style={mapControlStyles.map}
         region={region}
         showsUserLocation
         showsMyLocationButton
@@ -43,13 +44,3 @@ export default function Map() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    width: "100%",
-    height: "100%",
-  },
-});

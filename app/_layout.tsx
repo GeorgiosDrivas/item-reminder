@@ -8,8 +8,8 @@ import {
   PanGestureHandler,
   State,
 } from "react-native-gesture-handler";
-import { View, StyleSheet, Animated } from "react-native";
-import ItemsList from "./itemsList";
+import { StyleSheet, Animated } from "react-native";
+import ItemsList from "./(tabs)/itemsList";
 
 SplashScreen.preventAutoHideAsync();
 
