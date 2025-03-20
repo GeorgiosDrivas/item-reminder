@@ -6,8 +6,9 @@ import HomeScreen from "./(tabs)";
 import {
   GestureHandlerRootView,
   PanGestureHandler,
+  State,
 } from "react-native-gesture-handler";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Animated } from "react-native";
 import ItemsList from "./itemsList";
 
 SplashScreen.preventAutoHideAsync();
@@ -18,6 +19,7 @@ export default function RootLayout() {
   });
 
   const [screen, setScreen] = useState("home");
+  const translateX = new Animated.Value(0);
 
   useEffect(() => {
     if (loaded) {
@@ -29,20 +31,38 @@ export default function RootLayout() {
     return null;
   }
 
-  const onGestureEvent = (event: any) => {
-    if (event.nativeEvent.translationX > 50) {
-      setScreen("home");
-    } else if (event.nativeEvent.translationX < -50) {
-      setScreen("textField");
+  const onGestureEvent = Animated.event(
+    [{ nativeEvent: { translationX: translateX } }],
+    { useNativeDriver: true }
+  );
+
+  const onHandlerStateChange = (event: any) => {
+    if (event.nativeEvent.state === State.END) {
+      if (event.nativeEvent.translationX > 50) {
+        setScreen("home");
+      } else if (event.nativeEvent.translationX < -50) {
+        setScreen("textField");
+      }
+      Animated.spring(translateX, {
+        toValue: 0,
+        useNativeDriver: true,
+      }).start();
     }
+  };
+
+  const screenStyle = {
+    transform: [{ translateX }],
   };
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <PanGestureHandler onGestureEvent={onGestureEvent}>
-        <View style={styles.container}>
+      <PanGestureHandler
+        onGestureEvent={onGestureEvent}
+        onHandlerStateChange={onHandlerStateChange}
+      >
+        <Animated.View style={[styles.container, screenStyle]}>
           {screen === "home" ? <HomeScreen /> : <ItemsList />}
-        </View>
+        </Animated.View>
       </PanGestureHandler>
     </GestureHandlerRootView>
   );
