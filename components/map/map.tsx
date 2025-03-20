@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MapView, { Region } from "react-native-maps";
 import { View } from "react-native";
 import * as Location from "expo-location";
-import { mapControlStyles } from "./styles";
+import { mapStyles } from "./styles";
 
 const INITIAL_REGION = {
   latitude: 37.78825,
@@ -34,9 +34,9 @@ export default function Map() {
   }, []);
 
   return (
-    <View style={mapControlStyles.container}>
+    <View style={mapStyles.container}>
       <MapView
-        style={mapControlStyles.map}
+        style={mapStyles.map}
         region={region}
         showsUserLocation
         showsMyLocationButton
