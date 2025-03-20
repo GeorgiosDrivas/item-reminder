@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { StyleSheet, View, Text, Pressable, TextInput } from "react-native";
 
 export default function ItemsList() {
+  const [newItem, setNewItem] = useState("");
+
   return (
     <>
       <View style={styles.list}></View>
       <View style={styles.flex}>
-        <TextInput style={styles.textInput} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={setNewItem}
+          value={newItem}
+          placeholder="Enter Item"
+        />
         <View style={styles.buttonContainer}>
           <Pressable
             style={({ pressed }) => [
