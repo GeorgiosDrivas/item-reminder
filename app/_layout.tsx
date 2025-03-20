@@ -3,12 +3,12 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "react-native-reanimated";
 import HomeScreen from "./(tabs)";
-import TextFieldScreen from "./itemsList";
 import {
   GestureHandlerRootView,
   PanGestureHandler,
 } from "react-native-gesture-handler";
 import { View, StyleSheet } from "react-native";
+import ItemsList from "./itemsList";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -41,7 +41,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <PanGestureHandler onGestureEvent={onGestureEvent}>
         <View style={styles.container}>
-          {screen === "home" ? <HomeScreen /> : <TextFieldScreen />}
+          {screen === "home" ? <HomeScreen /> : <ItemsList />}
         </View>
       </PanGestureHandler>
     </GestureHandlerRootView>

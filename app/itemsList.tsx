@@ -1,54 +1,52 @@
-import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StyleSheet, View, Text, Pressable, TextInput } from "react-native";
 
-export default function TextFieldScreen() {
+export default function ItemsList() {
   return (
-    <SafeAreaProvider>
+    <>
+      <View style={styles.list}></View>
       <View style={styles.flex}>
-        <Text style={styles.text}>ADD ITEMS TO GET NOTIFIED</Text>
+        <TextInput style={styles.textInput} />
+        <View style={styles.buttonContainer}>
+          <Pressable
+            style={({ pressed }) => [
+              styles.addBtn,
+              styles.btn,
+              pressed && styles.pressed,
+            ]}
+            onPress={() => console.log("Add Item")}
+          >
+            <Text style={styles.text}>ADD ITEM</Text>
+          </Pressable>
+          <Pressable
+            style={({ pressed }) => [
+              styles.clearBtn,
+              styles.btn,
+              pressed && styles.pressed,
+            ]}
+            onPress={() => console.log("Clear Item")}
+          >
+            <Text style={styles.text}>CLEAR LIST</Text>
+          </Pressable>
+        </View>
       </View>
-      <View style={styles.sec}>
-        <Pressable
-          style={({ pressed }) => [
-            styles.addBtn,
-            styles.btn,
-            pressed && styles.pressed,
-          ]}
-          onPress={() => console.log("Add Location")}
-        >
-          <Text style={styles.text}>ADD ITEM</Text>
-        </Pressable>
-        <Pressable
-          style={({ pressed }) => [
-            styles.clearBtn,
-            styles.btn,
-            pressed && styles.pressed,
-          ]}
-          onPress={() => console.log("Add Location")}
-        >
-          <Text style={styles.text}>CLEAR LIST</Text>
-        </Pressable>
-      </View>
-    </SafeAreaProvider>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  flex: {
+  list: {
     flex: 1,
   },
-  sec: {
+  flex: {
     flex: 0.3,
-    flexDirection: "row",
-    justifyContent: "center",
+    width: "100%",
+    height: 100,
+    justifyContent: "flex-start",
     alignItems: "center",
-    marginTop: 10,
-  },
-  text: {
-    fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
+    flexDirection: "column",
+    borderTopColor: "#DAD9D9",
+    borderTopWidth: 1,
+    paddingTop: 10,
   },
   buttonContainer: {
     flexDirection: "row",
@@ -68,7 +66,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 5,
   },
+  text: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
   pressed: {
     opacity: 0.7,
+  },
+  textInput: {
+    borderWidth: 1,
+    width: 300,
   },
 });
