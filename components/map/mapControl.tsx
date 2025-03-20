@@ -1,11 +1,10 @@
 import { View, Text, Pressable } from "react-native";
-import { ThemedText } from "../ThemedText";
 import { mapStyles } from "./styles";
 
 export default function MapControl() {
   return (
     <View style={mapStyles.flex}>
-      <ThemedText>Hello</ThemedText>
+      <Text>Hello</Text>
       <View style={mapStyles.buttonContainer}>
         <Pressable
           style={({ pressed }) => [
