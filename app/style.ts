@@ -3,6 +3,8 @@ import { StyleSheet } from "react-native";
 export const indexStyles = StyleSheet.create({
   list: {
     flex: 1,
+    paddingHorizontal: 30,
+    paddingVertical: 60,
   },
   flex: {
     flex: 0.3,
@@ -14,5 +16,13 @@ export const indexStyles = StyleSheet.create({
     borderTopColor: "#DAD9D9",
     borderTopWidth: 1,
     paddingTop: 10,
+  },
+});
+
+export const listStyles = StyleSheet.create({
+  item: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });

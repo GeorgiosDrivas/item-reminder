@@ -1,6 +1,6 @@
 import ListControl from "@/components/list/listControl";
 import { Text, View } from "react-native";
-import { indexStyles } from "../style";
+import { indexStyles, listStyles } from "../style";
 import { useState } from "react";
 
 export default function ItemsList() {
@@ -21,7 +21,7 @@ export default function ItemsList() {
       <View style={indexStyles.list}>
         {itemsList.map((item, index) => (
           <View key={index}>
-            <Text style={{ color: "red" }}>{item}</Text>
+            <Text style={listStyles.item}>{item}</Text>
           </View>
         ))}
       </View>
