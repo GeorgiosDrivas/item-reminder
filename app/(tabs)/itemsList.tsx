@@ -1,16 +1,32 @@
 import ListControl from "@/components/list/listControl";
-import { useState } from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import { indexStyles } from "../style";
+import { useState } from "react";
 
 export default function ItemsList() {
-  const [newItem, setNewItem] = useState("");
+  const [itemsList, setItemsList] = useState<string[]>([]);
+
+  const addItem = (item: string) => {
+    if (item.trim()) {
+      setItemsList((prev) => [...prev, item]);
+    }
+  };
+
+  const clearItems = () => {
+    setItemsList([]);
+  };
 
   return (
     <>
-      <View style={indexStyles.list}></View>
+      <View style={indexStyles.list}>
+        {itemsList.map((item, index) => (
+          <View key={index}>
+            <Text style={{ color: "red" }}>{item}</Text>
+          </View>
+        ))}
+      </View>
       <View style={indexStyles.flex}>
-        <ListControl newItem={newItem} setNewItem={setNewItem} />
+        <ListControl addItem={addItem} clearItems={clearItems} />
       </View>
     </>
   );

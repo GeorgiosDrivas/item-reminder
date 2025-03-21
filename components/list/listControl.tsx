@@ -1,12 +1,15 @@
 import { Pressable, TextInput, View, Text } from "react-native";
 import { itemsListStyles } from "./styles";
+import { useState } from "react";
 
 interface Props {
-  newItem: string;
-  setNewItem: (text: string) => void;
+  addItem: (item: string) => void;
+  clearItems: () => void;
 }
 
-export default function ListControl({ newItem, setNewItem }: Props) {
+export default function ListControl({ addItem, clearItems }: Props) {
+  const [newItem, setNewItem] = useState("");
+
   return (
     <>
       <TextInput
@@ -22,7 +25,10 @@ export default function ListControl({ newItem, setNewItem }: Props) {
             itemsListStyles.btn,
             pressed && itemsListStyles.pressed,
           ]}
-          onPress={() => console.log("Add Item")}
+          onPress={() => {
+            addItem(newItem);
+            setNewItem("");
+          }}
         >
           <Text style={itemsListStyles.text}>ADD ITEM</Text>
         </Pressable>
@@ -32,7 +38,7 @@ export default function ListControl({ newItem, setNewItem }: Props) {
             itemsListStyles.btn,
             pressed && itemsListStyles.pressed,
           ]}
-          onPress={() => console.log("Clear Item")}
+          onPress={clearItems}
         >
           <Text style={itemsListStyles.text}>CLEAR LIST</Text>
         </Pressable>
