@@ -5,8 +5,8 @@ import * as Location from "expo-location";
 import { mapStyles } from "./styles";
 
 const INITIAL_REGION = {
-  latitude: 37.78825,
-  longitude: -122.4324,
+  latitude: -4.620229,
+  longitude: -10.766279,
   latitudeDelta: 0.0922,
   longitudeDelta: 0.0421,
 };

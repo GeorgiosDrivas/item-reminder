@@ -1,8 +1,9 @@
 import ListControl from "@/components/list/listControl";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import { indexStyles, listStyles } from "../style";
 import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { sendNotification } from "../notification";
 
 export default function ItemsList() {
   const [itemsList, setItemsList] = useState<string[]>([]);
@@ -61,6 +62,10 @@ export default function ItemsList() {
       <View style={indexStyles.flex}>
         <ListControl addItem={addItem} clearItems={clearItems} />
       </View>
+      <Button
+        title="Send Notification"
+        onPress={() => sendNotification({ items: itemsList })}
+      />
     </>
   );
 }

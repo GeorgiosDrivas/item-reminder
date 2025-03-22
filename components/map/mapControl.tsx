@@ -1,6 +1,5 @@
 import { View, Text, Pressable, Button } from "react-native";
 import { mapControlStyles } from "./styles";
-import { sendNotification } from "@/app/notification";
 
 export default function MapControl() {
   return (
@@ -27,7 +26,6 @@ export default function MapControl() {
         >
           <Text style={mapControlStyles.text}>CLEAR LOCATION</Text>
         </Pressable>
-        <Button title="Send Notification" onPress={sendNotification} />
       </View>
     </View>
   );
