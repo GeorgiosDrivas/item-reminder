@@ -1,7 +1,11 @@
 import { View, Text, Pressable, Button } from "react-native";
 import { mapControlStyles } from "./styles";
+import { mapControlInterface } from "@/types/mapTypes";
 
-export default function MapControl() {
+export default function MapControl({
+  setMarkedLocation,
+  desiredLocation,
+}: mapControlInterface) {
   return (
     <View style={mapControlStyles.flex}>
       <Text>Hello</Text>
@@ -12,7 +16,7 @@ export default function MapControl() {
             mapControlStyles.btn,
             pressed && mapControlStyles.pressed,
           ]}
-          onPress={() => console.log("Add Location")}
+          onPress={() => setMarkedLocation(desiredLocation)}
         >
           <Text style={mapControlStyles.text}>ADD LOCATION</Text>
         </Pressable>

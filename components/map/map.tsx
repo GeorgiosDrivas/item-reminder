@@ -3,6 +3,7 @@ import MapView, { Region } from "react-native-maps";
 import { View } from "react-native";
 import * as Location from "expo-location";
 import { mapStyles } from "./styles";
+import { mapInterface } from "@/types/mapTypes";
 
 const INITIAL_REGION = {
   latitude: -4.620229,
@@ -11,7 +12,7 @@ const INITIAL_REGION = {
   longitudeDelta: 0.0421,
 };
 
-export default function Map() {
+export default function Map({ setDesiredLocation }: mapInterface) {
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
 
   useEffect(() => {
