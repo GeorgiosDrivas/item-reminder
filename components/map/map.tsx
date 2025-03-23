@@ -4,13 +4,7 @@ import { View } from "react-native";
 import * as Location from "expo-location";
 import { mapStyles } from "./styles";
 import { mapInterface } from "@/types/mapTypes";
-
-const INITIAL_REGION = {
-  latitude: -4.620229,
-  longitude: -10.766279,
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421,
-};
+import { INITIAL_REGION } from "@/constants/initialCoords";
 
 export default function Map({ setDesiredLocation }: mapInterface) {
   const [region, setRegion] = useState<Region>(INITIAL_REGION);

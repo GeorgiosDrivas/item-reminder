@@ -1,4 +1,4 @@
-export interface mapControlInterface {
+export type mapControlInterface = {
   desiredLocation: {
     latitude: number;
     longitude: number;
@@ -13,9 +13,9 @@ export interface mapControlInterface {
       longitudeDelta: number;
     }>
   >;
-}
+};
 
-export interface mapInterface {
+export type mapInterface = {
   setDesiredLocation: React.Dispatch<
     React.SetStateAction<{
       latitude: number;
@@ -24,4 +24,4 @@ export interface mapInterface {
       longitudeDelta: number;
     }>
   >;
-}
+};
