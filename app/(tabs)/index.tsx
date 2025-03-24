@@ -4,26 +4,26 @@ import { useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
-  const [markedLocation, setMarkedLocation] = useState({
-    latitude: 0,
-    longitude: 0,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  });
-
   const [desiredLocation, setDesiredLocation] = useState({
     latitude: 0,
     longitude: 0,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
+  const [address, setAddress] = useState<string | null>(null);
+
+  const [marker, setMarker] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
 
   return (
     <SafeAreaProvider>
-      <Map setDesiredLocation={setDesiredLocation} />
+      <Map setAddress={setAddress} marker={marker} setMarker={setMarker} />
       <MapControl
-        setMarkedLocation={setMarkedLocation}
-        desiredLocation={desiredLocation}
+        setDesiredLocation={setDesiredLocation}
+        address={address}
+        marker={marker}
       />
     </SafeAreaProvider>
   );

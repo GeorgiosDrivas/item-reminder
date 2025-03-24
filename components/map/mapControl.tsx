@@ -3,12 +3,24 @@ import { mapControlStyles } from "./styles";
 import { mapControlInterface } from "@/types/mapTypes";
 
 export default function MapControl({
-  setMarkedLocation,
-  desiredLocation,
+  setDesiredLocation,
+  address,
+  marker,
 }: mapControlInterface) {
+  const finalizeLocation = () => {
+    setDesiredLocation({
+      latitude: marker?.latitude ?? 0,
+      longitude: marker?.longitude ?? 0,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    });
+
+    console.log("Location added" + marker?.latitude + marker?.longitude);
+  };
+
   return (
     <View style={mapControlStyles.flex}>
-      <Text>Hello</Text>
+      <Text>{address}</Text>
       <View style={mapControlStyles.buttonContainer}>
         <Pressable
           style={({ pressed }) => [
@@ -16,7 +28,7 @@ export default function MapControl({
             mapControlStyles.btn,
             pressed && mapControlStyles.pressed,
           ]}
-          onPress={() => setMarkedLocation(desiredLocation)}
+          onPress={() => finalizeLocation()}
         >
           <Text style={mapControlStyles.text}>ADD LOCATION</Text>
         </Pressable>
