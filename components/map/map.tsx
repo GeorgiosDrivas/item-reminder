@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MapView, { Marker, Region, MapPressEvent } from "react-native-maps";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import * as Location from "expo-location";
 import { mapStyles } from "./styles";
 import { mapInterface } from "@/types/mapTypes";
