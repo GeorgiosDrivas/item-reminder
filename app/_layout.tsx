@@ -1,5 +1,4 @@
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import "react-native-reanimated";
 import HomeScreen from "./(tabs)";
@@ -11,8 +10,6 @@ import {
 import { StyleSheet, Animated } from "react-native";
 import ItemsList from "./(tabs)/itemsList";
 
-SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
@@ -20,12 +17,6 @@ export default function RootLayout() {
 
   const [screen, setScreen] = useState("home");
   const translateX = new Animated.Value(0);
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
 
   if (!loaded) {
     return null;
