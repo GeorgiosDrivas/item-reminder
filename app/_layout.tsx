@@ -19,7 +19,7 @@ export default function RootLayout() {
           onPress={() => setModalVisible(false)}
           style={styles.closeButton}
         >
-          <Text style={styles.closeText}>Close</Text>
+          <Text>MAP</Text>
         </Pressable>
       </Modal>
       <Pressable
@@ -37,14 +37,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   closeButton: {
-    marginTop: 10,
+    position: "absolute",
+    bottom: 20,
+    left: 20,
     padding: 10,
-    backgroundColor: "#FF6347",
+    backgroundColor: "transparent",
     borderRadius: 5,
-  },
-  closeText: {
-    color: "white",
-    fontWeight: "bold",
   },
   itemsListButton: {
     position: "absolute",
