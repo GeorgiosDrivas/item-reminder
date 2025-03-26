@@ -43,6 +43,16 @@ export default function MapControl({
           <Text style={mapControlStyles.text}>CLEAR LOCATION</Text>
         </Pressable>
       </View>
+      <Pressable
+        style={({ pressed }) => [
+          mapControlStyles.clearBtn,
+          mapControlStyles.btn,
+          pressed && mapControlStyles.pressed,
+        ]}
+        onPress={() => console.log("Items list")}
+      >
+        <Text style={mapControlStyles.text}>ITEMS LIST</Text>
+      </Pressable>
     </View>
   );
 }
