@@ -1,50 +1,75 @@
-# Welcome to your Expo app 👋
+# Item Reminder App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Item Reminder is a React Native application designed to help users manage their to-do items and set location-based reminders. The app integrates mapping functionality and push notifications to ensure users never forget their important tasks.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Interactive Map**: Select and save locations using an interactive map powered by `react-native-maps`.
+- **Location-Based Reminders**: Add reminders tied to specific locations.
+- **Item Management**: Add, view, and clear a list of items.
+- **Push Notifications**: Receive notifications reminding you of your items.
+- **Offline Storage**: Save and retrieve items locally using `AsyncStorage`.
+
+## Screens
+
+1. **Home Screen**:
+
+   - Displays a map where users can select a location.
+   - Allows users to finalize or clear their selected location.
+
+2. **Items List**:
+   - Displays a list of items added by the user.
+   - Provides controls to add new items or clear the list.
+
+## Installation
+
+1. Clone the repository:
 
    ```bash
-   npm install
+   git clone https://github.com/your-username/item-reminder.git
+   cd item-reminder
+
    ```
 
-2. Start the app
+2. Install dependencies:
 
-   ```bash
-    npx expo start
-   ```
+3. Start the app:
 
-In the output, you'll find options to open the app in a
+4. Run on your desired platform:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- For Android: npm run android
+- For iOS: npm run ios (requires macOS)
+- For Web: Open the Expo development server in your browser.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Usage
 
-## Get a fresh project
+Open the app and grant location permissions.
+Use the map to select a location and save it.
+Add items to your list in the "Items List" screen.
+Receive notifications reminding you of your items when near the saved location.
 
-When you're ready, run:
+## Technologies Used
 
-```bash
-npm run reset-project
-```
+- React Native: Framework for building the app.
+- Expo: Development platform for React Native.
+- react-native-maps: Map integration.
+- expo-notifications: Push notification support.
+- AsyncStorage: Local storage for items.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## File Structure
 
-## Learn more
+app/: Contains the main screens and styles.
+components/: Reusable components for the map and list functionalities.
+constants/: Stores app constants like initial map coordinates.
+types/: TypeScript type definitions for props and interfaces.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Contributing
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Contributions are welcome! Please follow these steps:
 
-## Join the community
+## Fork the repository.
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Create a new branch: git checkout -b feature-name.
+- Commit your changes: git commit -m "Add feature-name".
+- Push to the branch: git push origin feature-name.
+- Open a pull request.
