@@ -3,6 +3,7 @@ import { View, Modal, Pressable, Text } from "react-native";
 import HomeScreen from "./(tabs)";
 import ItemsList from "./(tabs)/itemsList";
 import { layoutStyles } from "./style";
+import LeftArrow from "../assets/left-arrow.svg";
 
 export default function RootLayout() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -27,7 +28,7 @@ export default function RootLayout() {
         onPress={() => setModalVisible(true)}
         style={layoutStyles.itemsListButton}
       >
-        <Text>ITEMS LIST</Text>
+        <LeftArrow width={24} height={24} />
       </Pressable>
     </View>
   );
