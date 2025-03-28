@@ -37,7 +37,9 @@ export const layoutStyles = StyleSheet.create({
     left: 20,
     padding: 10,
     backgroundColor: "transparent",
-    borderRadius: 5,
+    borderWidth: 1,
+    borderRadius: 40,
+    borderColor: "#000",
   },
   itemsListButton: {
     position: "absolute",

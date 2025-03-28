@@ -4,6 +4,7 @@ import HomeScreen from "./(tabs)";
 import ItemsList from "./(tabs)/itemsList";
 import { layoutStyles } from "./style";
 import LeftArrow from "../assets/left-arrow.svg";
+import RightArrow from "../assets/right-arrow.svg";
 
 export default function RootLayout() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -21,7 +22,7 @@ export default function RootLayout() {
           onPress={() => setModalVisible(false)}
           style={layoutStyles.closeButton}
         >
-          <Text>MAP</Text>
+          <RightArrow width={24} height={24} />
         </Pressable>
       </Modal>
       <Pressable
