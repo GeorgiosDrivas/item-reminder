@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { StyleSheet, View, Modal, Pressable, Text } from "react-native";
+import { View, Modal, Pressable, Text } from "react-native";
 import HomeScreen from "./(tabs)";
 import ItemsList from "./(tabs)/itemsList";
+import { layoutStyles } from "./style";
 
 export default function RootLayout() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <View style={layoutStyles.container}>
       <HomeScreen />
       <Modal
         animationType="slide"
@@ -17,39 +18,17 @@ export default function RootLayout() {
         <ItemsList />
         <Pressable
           onPress={() => setModalVisible(false)}
-          style={styles.closeButton}
+          style={layoutStyles.closeButton}
         >
           <Text>MAP</Text>
         </Pressable>
       </Modal>
       <Pressable
         onPress={() => setModalVisible(true)}
-        style={styles.itemsListButton}
+        style={layoutStyles.itemsListButton}
       >
         <Text>ITEMS LIST</Text>
       </Pressable>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  closeButton: {
-    position: "absolute",
-    bottom: 20,
-    left: 20,
-    padding: 10,
-    backgroundColor: "transparent",
-    borderRadius: 5,
-  },
-  itemsListButton: {
-    position: "absolute",
-    bottom: 20,
-    right: 20,
-    padding: 10,
-    backgroundColor: "transparent",
-    borderRadius: 5,
-  },
-});
