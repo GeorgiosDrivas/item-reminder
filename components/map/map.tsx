@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MapView, { Marker, Region, MapPressEvent } from "react-native-maps";
+import MapView, { Marker, MapPressEvent } from "react-native-maps";
 import { View } from "react-native";
 import * as Location from "expo-location";
 import { mapStyles } from "./styles";
@@ -7,7 +7,7 @@ import { mapInterface } from "@/types/mapTypes";
 import { INITIAL_REGION } from "@/constants/initialCoords";
 
 export default function Map({ setAddress, marker, setMarker }: mapInterface) {
-  const [region, setRegion] = useState<Region>(INITIAL_REGION);
+  const [region, setRegion] = useState(INITIAL_REGION);
 
   useEffect(() => {
     (async () => {
@@ -26,6 +26,16 @@ export default function Map({ setAddress, marker, setMarker }: mapInterface) {
     })();
   }, []);
 
+  useEffect(() => {
+    if (marker) {
+      setRegion({
+        ...region,
+        latitude: marker.latitude,
+        longitude: marker.longitude,
+      });
+    }
+  }, [marker]);
+
   const handleMapPress = async (event: MapPressEvent) => {
     const { latitude, longitude } = event.nativeEvent.coordinate;
     setMarker({ latitude, longitude });
@@ -37,8 +47,12 @@ export default function Map({ setAddress, marker, setMarker }: mapInterface) {
       });
       if (geoCode.length > 0) {
         const locationDetails = geoCode[0];
-        const formattedAddress = `${locationDetails.street}, ${locationDetails.city}, ${locationDetails.region}, ${locationDetails.country}`;
-        setAddress(formattedAddress);
+        const formattedAddress = `${
+          locationDetails.street ?? "Unknown Street"
+        }, ${locationDetails.city ?? ""}, ${locationDetails.region ?? ""}, ${
+          locationDetails.country ?? ""
+        }`;
+        setAddress(formattedAddress.trim());
       } else {
         setAddress("Address not found");
       }
