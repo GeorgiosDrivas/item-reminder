@@ -1,13 +1,9 @@
 import { Pressable, TextInput, View, Text } from "react-native";
 import { itemsListStyles } from "./styles";
 import { useState } from "react";
+import { listControlProps } from "@/types/listTypes";
 
-interface Props {
-  addItem: (item: string) => void;
-  clearItems: () => void;
-}
-
-export default function ListControl({ addItem, clearItems }: Props) {
+export default function ListControl({ addItem, clearItems }: listControlProps) {
   const [newItem, setNewItem] = useState("");
 
   return (
