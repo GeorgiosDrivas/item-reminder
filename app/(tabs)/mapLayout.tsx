@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function HomeScreen() {
+export default function MapScreen() {
   const [marker, setMarker] = useState<{
     latitude: number;
     longitude: number;

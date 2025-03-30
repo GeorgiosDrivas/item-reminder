@@ -4,7 +4,7 @@ import { indexStyles, listStyles } from "../style";
 import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function ItemsList() {
+export default function ItemsListScreen() {
   const [itemsList, setItemsList] = useState<string[]>([]);
 
   useEffect(() => {

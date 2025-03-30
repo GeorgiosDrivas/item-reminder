@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, Modal, Pressable, Text } from "react-native";
-import HomeScreen from "./(tabs)";
-import ItemsList from "./(tabs)/itemsList";
+import MapScreen from "./(tabs)/mapLayout";
+import ItemsListScreen from "./(tabs)/itemsListLayout";
 import { layoutStyles } from "./style";
 import LeftArrow from "../assets/left-arrow.svg";
 import RightArrow from "../assets/right-arrow.svg";
@@ -11,13 +11,13 @@ export default function RootLayout() {
 
   return (
     <View style={layoutStyles.container}>
-      <HomeScreen />
+      <MapScreen />
       <Modal
         animationType="slide"
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <ItemsList />
+        <ItemsListScreen />
         <Pressable
           onPress={() => setModalVisible(false)}
           style={layoutStyles.closeButton}
