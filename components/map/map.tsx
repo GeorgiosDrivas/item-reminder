@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import MapView, { Marker, MapPressEvent } from "react-native-maps";
-import { View } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
+import { View } from "react-native";
 import { mapStyles } from "./styles";
 import { mapInterface } from "@/types/mapTypes";
 import { INITIAL_REGION } from "@/constants/initialCoords";
 import { getDistance } from "@/constants/mapDistanceCalc";
+import { handleMapPress } from "@/constants/handleMapPress";
 
 export default function Map({ setAddress, marker, setMarker }: mapInterface) {
   const [region, setRegion] = useState(INITIAL_REGION);
@@ -66,32 +67,6 @@ export default function Map({ setAddress, marker, setMarker }: mapInterface) {
     }
   }, [userLocation, marker]);
 
-  const handleMapPress = async (event: MapPressEvent) => {
-    const { latitude, longitude } = event.nativeEvent.coordinate;
-    setMarker({ latitude, longitude });
-
-    try {
-      const geoCode = await Location.reverseGeocodeAsync({
-        latitude,
-        longitude,
-      });
-      if (geoCode.length > 0) {
-        const locationDetails = geoCode[0];
-        const formattedAddress = `${
-          locationDetails.street ?? "Unknown Street"
-        }, ${locationDetails.city ?? ""}, ${locationDetails.region ?? ""}, ${
-          locationDetails.country ?? ""
-        }`;
-        setAddress(formattedAddress.trim());
-      } else {
-        setAddress("Address not found");
-      }
-    } catch (error) {
-      console.error("Reverse geocoding error:", error);
-      setAddress("Error fetching address");
-    }
-  };
-
   return (
     <View style={mapStyles.container}>
       <MapView
@@ -99,7 +74,7 @@ export default function Map({ setAddress, marker, setMarker }: mapInterface) {
         region={region}
         showsUserLocation
         showsMyLocationButton
-        onPress={handleMapPress}
+        onPress={(event) => handleMapPress({ event, setMarker, setAddress })}
       >
         {marker && <Marker coordinate={marker} title="Selected Location" />}
       </MapView>
