@@ -1,11 +1,6 @@
 import { MapPressEvent } from "react-native-maps";
 import * as Location from "expo-location";
-
-type MapPressProps = {
-  event: MapPressEvent;
-  setMarker: (marker: { latitude: number; longitude: number }) => void;
-  setAddress: (address: string) => void;
-};
+import { MapPressProps } from "@/types/mapTypes";
 
 export const handleMapPress = async ({
   event,
