@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Modal, Pressable, Text } from "react-native";
+import { View, Modal, Pressable } from "react-native";
 import MapScreen from "./(tabs)/mapLayout";
 import ItemsListScreen from "./(tabs)/itemsListLayout";
 import { layoutStyles } from "./style";
