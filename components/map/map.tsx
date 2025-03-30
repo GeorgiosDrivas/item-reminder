@@ -3,12 +3,12 @@ import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import { View } from "react-native";
 import { mapStyles } from "./styles";
-import { mapInterface } from "@/types/mapTypes";
+import { mapCompType } from "@/types/mapTypes";
 import { INITIAL_REGION } from "@/constants/initialCoords";
 import { getDistance } from "@/constants/mapDistanceCalc";
 import { handleMapPress } from "@/constants/handleMapPress";
 
-export default function Map({ setAddress, marker, setMarker }: mapInterface) {
+export default function Map({ setAddress, marker, setMarker }: mapCompType) {
   const [region, setRegion] = useState(INITIAL_REGION);
   const [userLocation, setUserLocation] = useState<{
     latitude: number;

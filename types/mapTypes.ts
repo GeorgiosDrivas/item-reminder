@@ -4,7 +4,7 @@ export type mapControlInterface = {
   address: string | null;
 };
 
-export type mapInterface = {
+export type mapCompType = {
   setAddress: React.Dispatch<React.SetStateAction<string | null>>;
   marker: { latitude: number; longitude: number } | null;
   setMarker: React.Dispatch<
