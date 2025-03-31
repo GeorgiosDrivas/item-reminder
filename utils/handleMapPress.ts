@@ -1,4 +1,3 @@
-import { MapPressEvent } from "react-native-maps";
 import * as Location from "expo-location";
 import { MapPressProps } from "@/types/mapTypes";
 

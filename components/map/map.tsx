@@ -5,8 +5,8 @@ import { View } from "react-native";
 import { mapStyles } from "./styles";
 import { mapCompType } from "@/types/mapTypes";
 import { INITIAL_REGION } from "@/constants/initialCoords";
-import { getDistance } from "@/constants/mapDistanceCalc";
-import { handleMapPress } from "@/constants/handleMapPress";
+import { getDistance } from "@/utils/mapDistanceCalc";
+import { handleMapPress } from "@/utils/handleMapPress";
 
 export default function Map({ setAddress, marker, setMarker }: mapCompType) {
   const [region, setRegion] = useState(INITIAL_REGION);
