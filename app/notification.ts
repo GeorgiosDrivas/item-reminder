@@ -1,8 +1,5 @@
+import { NotificationTypes } from "@/types/notificationTypes";
 import * as Notifications from "expo-notifications";
-
-interface Props {
-  items: string[];
-}
 
 export async function registerForPushNotificationsAsync() {
   const { status } = await Notifications.requestPermissionsAsync();
@@ -12,7 +9,7 @@ export async function registerForPushNotificationsAsync() {
   }
 }
 
-export async function sendNotification({ items }: Props) {
+export async function sendNotification({ items }: NotificationTypes) {
   const [item1, item2, item3] = items;
   await Notifications.presentNotificationAsync({
     title: "Reminder",
