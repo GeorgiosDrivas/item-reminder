@@ -3,11 +3,7 @@ import { Text, View } from "react-native";
 import { indexStyles, listStyles } from "../style";
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-type ItemsListScreenType = {
-  itemsList: string[];
-  setItemsList: React.Dispatch<React.SetStateAction<string[]>>;
-};
+import { ItemsListScreenType } from "@/types/listTypes";
 
 export default function ItemsListScreen({
   itemsList,

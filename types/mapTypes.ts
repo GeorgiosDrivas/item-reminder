@@ -18,3 +18,7 @@ export type MapPressProps = {
   setMarker: (marker: { latitude: number; longitude: number }) => void;
   setAddress: (address: string) => void;
 };
+
+export type MapScreenType = {
+  itemsList: string[];
+};

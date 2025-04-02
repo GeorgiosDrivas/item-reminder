@@ -3,6 +3,7 @@ import MapControl from "@/components/map/mapControl";
 import { useState, useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { MapScreenType } from "@/types/mapTypes";
 
 export default function MapScreen({ itemsList }: MapScreenType) {
   const [marker, setMarker] = useState<{
