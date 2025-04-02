@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function MapScreen() {
+export default function MapScreen({ itemsList }: MapScreenType) {
   const [marker, setMarker] = useState<{
     latitude: number;
     longitude: number;
@@ -45,7 +45,12 @@ export default function MapScreen() {
 
   return (
     <SafeAreaProvider>
-      <Map setAddress={setAddress} marker={marker} setMarker={setMarker} />
+      <Map
+        itemsList={itemsList}
+        setAddress={setAddress}
+        marker={marker}
+        setMarker={setMarker}
+      />
       <MapControl address={address} />
     </SafeAreaProvider>
   );

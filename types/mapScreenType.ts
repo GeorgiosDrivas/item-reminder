@@ -1,0 +1,3 @@
+type MapScreenType = {
+  itemsList: string[];
+};

@@ -7,8 +7,14 @@ import { mapCompType } from "@/types/mapTypes";
 import { INITIAL_REGION } from "@/constants/initialCoords";
 import { getDistance } from "@/utils/mapDistanceCalc";
 import { handleMapPress } from "@/utils/handleMapPress";
+import { sendNotification } from "@/app/notification";
 
-export default function Map({ setAddress, marker, setMarker }: mapCompType) {
+export default function Map({
+  itemsList,
+  setAddress,
+  marker,
+  setMarker,
+}: mapCompType) {
   const [region, setRegion] = useState(INITIAL_REGION);
   const [userLocation, setUserLocation] = useState<{
     latitude: number;
@@ -62,7 +68,7 @@ export default function Map({ setAddress, marker, setMarker }: mapCompType) {
         userLocation.longitude
       );
       if (distance > 10) {
-        console.log("🚨 User has left the selected location!");
+        sendNotification({ items: itemsList });
       }
     }
   }, [userLocation, marker]);

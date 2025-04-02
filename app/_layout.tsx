@@ -8,16 +8,17 @@ import RightArrow from "../assets/right-arrow.svg";
 
 export default function RootLayout() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [itemsList, setItemsList] = useState<string[]>([]);
 
   return (
     <View style={layoutStyles.container}>
-      <MapScreen />
+      <MapScreen itemsList={itemsList} />
       <Modal
         animationType="slide"
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
-        <ItemsListScreen />
+        <ItemsListScreen itemsList={itemsList} setItemsList={setItemsList} />
         <Pressable
           onPress={() => setModalVisible(false)}
           style={layoutStyles.closeButton}

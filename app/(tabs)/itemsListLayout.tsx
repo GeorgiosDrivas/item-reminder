@@ -1,12 +1,18 @@
 import ListControl from "@/components/list/listControl";
 import { Text, View } from "react-native";
 import { indexStyles, listStyles } from "../style";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function ItemsListScreen() {
-  const [itemsList, setItemsList] = useState<string[]>([]);
+type ItemsListScreenType = {
+  itemsList: string[];
+  setItemsList: React.Dispatch<React.SetStateAction<string[]>>;
+};
 
+export default function ItemsListScreen({
+  itemsList,
+  setItemsList,
+}: ItemsListScreenType) {
   useEffect(() => {
     const loadItems = async () => {
       try {
@@ -61,10 +67,6 @@ export default function ItemsListScreen() {
       <View style={indexStyles.flex}>
         <ListControl addItem={addItem} clearItems={clearItems} />
       </View>
-      {/* <Button
-        title="Send Notification"
-        onPress={() => sendNotification({ items: itemsList })}
-      /> */}
     </>
   );
 }
