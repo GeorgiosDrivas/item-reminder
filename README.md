@@ -2,6 +2,9 @@
 
 Item Reminder is a React Native application designed to help users manage their to-do items and set location-based reminders. The app integrates mapping functionality and push notifications to ensure users never forget their important tasks.
 
+![Screenshot_2025-04-03-12-37-14-036_host exp exponent](https://github.com/user-attachments/assets/199b4dcc-91b3-472e-945f-f68006717e3e)
+![Screenshot_2025-04-03-12-37-08-129_host exp exponent](https://github.com/user-attachments/assets/814bd125-f2ff-4187-8054-aaaed746d497)
+
 ## Features
 
 - **Interactive Map**: Select and save locations using an interactive map powered by `react-native-maps`.
