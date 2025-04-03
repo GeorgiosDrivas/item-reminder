@@ -9,14 +9,13 @@ import { getDistance } from "@/utils/mapDistanceCalc";
 import { handleMapPress } from "@/utils/handleMapPress";
 import { sendNotification } from "@/app/notification";
 
-export default function Map({
-  itemsList,
-  setAddress,
-  marker,
-  setMarker,
-}: mapCompType) {
+export default function Map({ itemsList, setAddress }: mapCompType) {
   const [region, setRegion] = useState(INITIAL_REGION);
   const [userLocation, setUserLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
+  const [marker, setMarker] = useState<{
     latitude: number;
     longitude: number;
   } | null>(null);
@@ -30,10 +29,13 @@ export default function Map({
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      setUserLocation({
+      const newLocation = {
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
-      });
+      };
+
+      setUserLocation(newLocation);
+      setMarker(newLocation);
 
       setRegion((prev) => ({
         ...prev,
