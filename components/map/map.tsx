@@ -8,8 +8,10 @@ import { INITIAL_REGION } from "@/constants/initialCoords";
 import { getDistance } from "@/utils/mapDistanceCalc";
 import { handleMapPress } from "@/utils/handleMapPress";
 import { sendNotification } from "@/app/notification";
+import { useStore } from "@/store/context";
 
-export default function Map({ itemsList, setAddress }: mapCompType) {
+export default function Map({ setAddress }: mapCompType) {
+  const { itemsList } = useStore();
   const [region, setRegion] = useState(INITIAL_REGION);
   const [userLocation, setUserLocation] = useState<{
     latitude: number;

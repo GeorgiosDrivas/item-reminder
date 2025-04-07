@@ -3,12 +3,11 @@ import { Text, View } from "react-native";
 import { indexStyles, listStyles } from "../style";
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { ItemsListScreenType } from "@/types/listTypes";
+import { useStore } from "@/store/context";
 
-export default function ItemsListScreen({
-  itemsList,
-  setItemsList,
-}: ItemsListScreenType) {
+export default function ItemsListScreen() {
+  const { itemsList, setItemsList } = useStore();
+
   useEffect(() => {
     const loadItems = async () => {
       try {
@@ -38,7 +37,7 @@ export default function ItemsListScreen({
 
   const addItem = (item: string) => {
     if (item.trim()) {
-      setItemsList((prev) => [...prev, item]);
+      setItemsList((prev: string[]) => [...prev, item]);
     }
   };
 
