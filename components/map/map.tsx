@@ -86,7 +86,9 @@ export default function Map({ setAddress }: mapCompType) {
         region={region}
         showsUserLocation
         showsMyLocationButton
-        onPress={(event) => handleMapPress({ event, setMarker, setAddress })}
+        onPress={(event) =>
+          handleMapPress({ event, setMarker, setAddress, setNotificationSent })
+        }
       >
         {marker && <Marker coordinate={marker} title="Selected Location" />}
       </MapView>

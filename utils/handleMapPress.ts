@@ -5,10 +5,11 @@ export const handleMapPress = async ({
   event,
   setMarker,
   setAddress,
+  setNotificationSent,
 }: MapPressProps) => {
   const { latitude, longitude } = event.nativeEvent.coordinate;
   setMarker({ latitude, longitude });
-
+  setNotificationSent(false);
   try {
     const geoCode = await Location.reverseGeocodeAsync({
       latitude,
