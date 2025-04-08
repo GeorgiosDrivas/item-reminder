@@ -2,8 +2,6 @@
 
 A React Native mobile app that helps you remember important items when leaving a specific location. Set a location on the map, add your must-not-forget items, and get notified when you move away from that place.
 
-![screenshot](./assets/screenshot.png)
-
 ---
 
 ## ✨ Features
@@ -27,9 +25,25 @@ A React Native mobile app that helps you remember important items when leaving a
 
 ### Installation
 
-```bash
-git clone https://github.com/your-username/item-reminder-app.git
-cd item-reminder-app
-npm install
-expo start
-```
+- git clone https://github.com/your-username/item-reminder-app.git
+- cd item-reminder-app
+- npm install
+- expo start
+
+---
+
+## 🛠 Built With
+
+1. React Native
+2. Expo
+3. expo-location
+4. expo-notifications
+5. React Navigation
+6. React Native Maps
+
+## 🔐 Permissions
+
+The app uses the following permissions:
+
+- Foreground and background location access
+- Notifications
