@@ -3,14 +3,13 @@ import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import { View } from "react-native";
 import { mapStyles } from "./styles";
-import { mapCompType } from "@/types/mapTypes";
 import { INITIAL_REGION } from "@/constants/initialCoords";
 import { getDistance } from "@/utils/mapDistanceCalc";
 import { handleMapPress } from "@/utils/handleMapPress";
 import { sendNotification } from "@/app/notification";
 import { useStore } from "@/store/context";
 
-export default function Map({ setAddress }: mapCompType) {
+export default function Map() {
   const { itemsList } = useStore();
   const [region, setRegion] = useState(INITIAL_REGION);
   const [userLocation, setUserLocation] = useState<{
@@ -22,6 +21,7 @@ export default function Map({ setAddress }: mapCompType) {
     longitude: number;
   } | null>(null);
   const [notificationSent, setNotificationSent] = useState(false);
+  const { setAddress } = useStore();
 
   useEffect(() => {
     (async () => {
