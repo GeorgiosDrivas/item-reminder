@@ -21,6 +21,7 @@ export default function Map({ setAddress }: mapCompType) {
     latitude: number;
     longitude: number;
   } | null>(null);
+  const [notificationSent, setNotificationSent] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -71,8 +72,9 @@ export default function Map({ setAddress }: mapCompType) {
         userLocation.latitude,
         userLocation.longitude
       );
-      if (distance > 10) {
+      if (distance > 10 && !notificationSent) {
         sendNotification({ items: itemsList });
+        setNotificationSent(true);
       }
     }
   }, [userLocation, marker]);
