@@ -40,6 +40,7 @@ A React Native mobile app that helps you remember important items when leaving a
 4. expo-notifications
 5. React Navigation
 6. React Native Maps
+7. Context API
 
 ---
 
