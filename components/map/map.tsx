@@ -11,6 +11,8 @@ import { useStore } from "@/store/context";
 
 export default function Map() {
   const { itemsList } = useStore();
+  const { setAddress } = useStore();
+
   const [region, setRegion] = useState(INITIAL_REGION);
   const [userLocation, setUserLocation] = useState<{
     latitude: number;
@@ -21,7 +23,6 @@ export default function Map() {
     longitude: number;
   } | null>(null);
   const [notificationSent, setNotificationSent] = useState(false);
-  const { setAddress } = useStore();
 
   useEffect(() => {
     (async () => {
